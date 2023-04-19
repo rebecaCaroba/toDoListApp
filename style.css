@@ -6,7 +6,9 @@
 --LightGrayishBlue: hsl(236, 33%, 92%);
 --DarkGrayishBlue: hsl(234, 11%, 52%);
 --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
---VeryDarkGrayishBlue: hsl(237, 14%, 26%);
+--VeryDarkGrayishBlue2: hsl(237, 14%, 26%);
+--BrightBlue: hsl(220, 98%, 61%);
+--CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 }
 
 * {
@@ -30,22 +32,22 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+
 }
 
 .container {
     /* background-color: rgba(0, 255, 255, 0.292); */
     position: relative;
-    height: 30rem;
-    min-width: 500px;
-    max-width: 600px;
+    max-width: 1900px;
+    margin: 6rem auto 0;
+    
 }
 
 .title  {
     display: flex;
     align-items: center;
-    gap: 45%;
-    margin: 30px 0px;
+    gap: 320px;
+    margin: 20px 0px;
 }
 
 .title h1 {
@@ -54,12 +56,124 @@ main {
 }
 
 .tasks-input {
+    display: flex;
     background-color: var(--VeryDarkDesaturatedBlue);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
 }
 
-input{
+#add {
+    width: 30px;
+    cursor: pointer;
+}
+
+#text{
     background-color: transparent;
     padding: 20px;
-    
     border: 0;
+}
+
+
+#res {
+    border-radius: 5px;
+    background-color: var(--VeryDarkDesaturatedBlue);
+    color: var(--LighzGrayishBlue);
+    
+}
+
+.tasks-res {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid var(--VeryDarkGrayishBlue);
+}
+
+.tasks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.check {
+    transition: 0.8s;
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    border: 1px solid hsl(236,9%,61%);
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.check-click {
+    transition: 0.8s;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-image: radial-gradient(circle at 30% 107%, #00a0a0 0%, #8c3f9e 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.check-click::before {
+    content: url('../images/icon-check.svg');
+    width: 15px;
+    height: 15px;
+}
+
+label {
+    flex: 1;
+
+}
+
+#theme, #button-cross {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.content-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: var(--DarkGrayishBlue);
+
+}
+
+.content-info button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.content-info button:hover {
+    color: white;
+}
+
+#button-info button:focus {
+    color: var(--BrightBlue);
+}
+
+/*Class*/
+
+.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.done label {
+    text-decoration: line-through;
+    font-style: italic;
 }
