@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+:root {
+--VeryDarkBlue: hsl(235, 21%, 11%);
+--VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+--LighzGrayishBlue: hsl(234, 39%, 85%);
+--LightGrayishBlue: hsl(236, 33%, 92%);
+--DarkGrayishBlue: hsl(234, 11%, 52%);
+--VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+--VeryDarkGrayishBlue: hsl(237, 14%, 26%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--VeryDarkBlue);
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.banner img {
+    position: absolute;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    /* background-color: rgba(0, 255, 255, 0.292); */
+    position: relative;
+    height: 30rem;
+    min-width: 500px;
+    max-width: 600px;
+}
+
+.title  {
+    display: flex;
+    align-items: center;
+    gap: 45%;
+    margin: 30px 0px;
+}
+
+.title h1 {
+    font-size: 50px;
+    letter-spacing: 20px;
+}
+
+.tasks-input {
+    background-color: var(--VeryDarkDesaturatedBlue);
+}
+
+input{
+    background-color: transparent;
+    padding: 20px;
+    
+    border: 0;
+}
