@@ -16,7 +16,7 @@ function criarItem(valor){
 }
 
 
-form.addEventListener('submit', function addElemento(e){
+form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const valor = document.querySelector('#text');
