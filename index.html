@@ -18,43 +18,32 @@
     <section class="container">
       <div class="title">
         <h1>TODO</h1>
-        <button id="theme">
-          <img src="../images/icon-moon.svg" alt="moon">
-        </button>
+        <button id="theme"></button>
       </div>
       <div class="content">
         <div class="tasks-input">
-          <form>
-            <input type="submit" value="add" id="add">
-            <input type="text" id="text" placeholder="tasks">
-          </form>
+          <button id="add"></button>
+          <input type="text" id="text" autocomplete="off" placeholder="Create a new todo...">
         </div>
         <!-- ------------------------------------------------------------- -->
         <div class="" id="res">
+          <!-- <div class="no-task">
+          <span class="hidden-tasks">No Exixting Records </span>
+          </div> -->
           <div class="tasks-res">
             <div class="tasks">
-              <div class="check">
-                <input type="checkbox" class="checkbox-round" />
-              </div>
-              <span>Ler por 1h</span>
+              <input type="checkbox" class="checkbox-round" />
+              <span class="tasks-span">Ler por 1h</span>
             </div>
-            <button id="button-cross">
-              <img src="../images/icon-cross.svg" alt="cross">
-            </button>
+            <button class="button-cross"></button>
           </div>
           <div class="tasks-res">
             <div class="tasks">
-              <div class="check">
-                <input type="checkbox" class="checkbox-round" />
-              </div>
-              <span>Fazer exercícios</span>
+              <input type="checkbox" class="checkbox-round" />
+              <span class="tasks-span">Fazer exercícios</span>
             </div>
-
-            <button id="button-cross">
-              <img src="../images/icon-cross.svg" alt="cross">
-            </button>
+            <button class="button-cross"></button>
           </div>
-          
           <footer class="content-info">
             <div id="amout">
               <p>2 items left</p>
@@ -66,16 +55,13 @@
             </div>
             <div id="btn-Clear">
               <button id="Clear">Clear Completed</button>
-            </footer>
+          </footer>
 
-          </div>
         </div>
+      </div>
       </div>
     </section>
   </main>
-
-
-
   <script src="script.js"></script>
 </body>
 
