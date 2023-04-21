@@ -154,8 +154,9 @@ main {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    background-color: var(--VeryDarkDesaturatedBlue);
     color: var(--DarkGrayishBlue);
-
+    border-radius: 5px;
 }
 
 .content-info button {
