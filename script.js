@@ -1,69 +1,89 @@
-const add = document.querySelector('#add');
+const add = document.querySelector('.tasks-input');
 const res = document.querySelector('#res');
+const noTask = document.querySelector('.no-task');
 const btnAll = document.querySelector('#All');
 const btnActive = document.querySelector('#Active');
 const btnCompleted = document.querySelector('#Completed');
 const btnClear = document.querySelector('#Clear');
-let incremento = 0
-let i = 0;
+const amout = document.querySelector('#amout');
 const arrTask = [];
+// ---------------------------------------------------------------------------------------------------
 
-// Delete
-document.addEventListener('click', (e) => {
-    const targetEl = e.target;
-    const parentEl = targetEl.closest('div');
+const allDatas = JSON.parse(localStorage.getItem('datas'));
+let itens = localStorage.getItem('datas') !== null ? allDatas : [];
 
-    if(targetEl.classList.contains('button-cross')){
-        const idParent = parentEl.id;
-        const textParent = parentEl.textContent;
-        
-    //     const indexRemove = arrTask.find((x) => x.textParent === idParent);
-    //    arrTask.splice(indexRemove, 1);
+function IdAleatorio() {
 
-        parentEl.remove()
-    }
-})
-
-
-function criarItem(valor){
-    const idItem = `id-${incremento++}`
-    const taskRes = document.createElement('div');
-    taskRes.classList.add('tasks-res')
-    const task = document.createElement('div')
-    task.classList.add('tasks');
-    taskRes.appendChild(task);
-    taskRes.setAttribute('id', idItem);
-    const inputCheck = document.createElement('input')
-    inputCheck.setAttribute('type', 'checkbox');
-    inputCheck.classList.add('checkbox-round')
-    const span = document.createElement('span')
-    span.classList.add('tasks-span')
-    span.innerText = valor
-    res.appendChild(span)
-    task.appendChild(inputCheck)
-    task.appendChild(span)
-    const buttonRemove = document.createElement('button')
-    buttonRemove.classList.add('button-cross')
-    taskRes.appendChild(buttonRemove)
-    res.appendChild(taskRes)
-    
-    const taskResString = taskRes.innerHTML
-    return { idItem, valor, taskResString  }
+    const id = Date.now();
+    return id;
 }
 
-add.addEventListener('click', (e) => {
-    e.preventDefault();
-    const valor = document.querySelector('#text');
-    if(valor) {
-        const itemList = criarItem(valor.value);
-        arrTask.push(itemList);
+add.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const inputValor = document.querySelector('#text');
+    const valor = inputValor.value;
+    if (valor && !valor == ' ' && valor.length <= 60) {
 
-        localStorage.setItem('taskStorage', JSON.stringify(arrTask));
-        let getTaskStorage = localStorage.getItem('taskStorage');
+        const data = {
+            valor,
+            id: IdAleatorio()
+        }
+
+        itens.push(data);
+        contagemDeItens();
+        renderizarListaVazia();
+        atualizarLocalStorage();
+        Renderizar()
+
+    } else {
+        alert('Invalid task')
     }
-    
-    valor.value = ' ';
-    valor.focus() 
 })
 
-// localStorage.clear() 
+function atualizarLocalStorage() {
+    localStorage.setItem('datas', JSON.stringify(itens))
+}
+
+function Renderizar() {
+    itens.map(item => {
+        res.insertAdjacentHTML("afterbegin", `
+            <div class="tasks-res" id="${item.id}">
+                <div class="tasks">
+                    <input type="checkbox" class="checkbox-round">
+                    <span class="tasks-span">
+                        ${item.valor}
+                    </span>
+                </div>
+                <button class="button-cross" onClick='Delete(${item.id})' />
+            </div>`
+        );
+    })
+    
+}
+
+function contagemDeItens() {
+    amout.innerText = `${itens.length}`;
+}
+
+function Delete(id) {
+    itens = itens.filter(item => item.id !== id);
+
+    const itemremove = document.getElementById(`${id}`);
+    itemremove.remove();
+
+    contagemDeItens();
+    renderizarListaVazia();
+    atualizarLocalStorage();
+}
+
+function renderizarListaVazia() {
+    if (itens.length === 0) {
+        noTask.style.display = 'block';
+    } else {
+        noTask.style.display = 'none';
+    }
+}
+
+Renderizar();
+renderizarListaVazia();
+contagemDeItens();

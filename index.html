@@ -21,19 +21,20 @@
         <button id="theme"></button>
       </div>
       <div class="content">
-        <div class="tasks-input">
-          <button id="add"></button>
+        <form class="tasks-input">
+          <input type="submit" id="add" value=" ">
           <input type="text" id="text" autocomplete="off" placeholder="Create a new todo...">
-        </div>
+        </form>
         <!-- ------------------------------------------------------------- -->
+        
         <div class="" id="res">
           <div class="no-task">
-          <span class="hidden-tasks">No Exixting Records </span>
+            <span class="hidden-tasks">No Exixting Records </span>
           </div>
         </div>
         <footer class="content-info">
-          <div id="amout">
-            <p>2 items left</p>
+          <div>
+            <span id="amout"></span> items left
           </div>
           <div id="button-info">
             <button id="All">All</button>
@@ -44,10 +45,10 @@
             <button id="Clear">Clear Completed</button>
         </footer>
       </div>
-      </div>
     </section>
   </main>
   <script src="script.js"></script>
+  <!-- <script src="scriptdois.js"></script> -->
 </body>
 
 </html>
