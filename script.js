@@ -34,10 +34,13 @@ add.addEventListener("submit", (event) => {
         renderizarListaVazia();
         atualizarLocalStorage();
         Renderizar()
+        inputValor.value = ' '
+        inputValor.focus()
 
     } else {
         alert('Invalid task')
     }
+
 })
 
 function atualizarLocalStorage() {
@@ -56,9 +59,8 @@ function Renderizar() {
                 </div>
                 <button class="button-cross" onClick='Delete(${item.id})' />
             </div>`
-        );
-    })
-    
+        )
+    });
 }
 
 function contagemDeItens() {
@@ -83,6 +85,13 @@ function renderizarListaVazia() {
         noTask.style.display = 'none';
     }
 }
+
+btnClear.addEventListener('click', () => {
+    localStorage.clear();
+    itens = [];
+    renderizarListaVazia()
+    
+})
 
 Renderizar();
 renderizarListaVazia();
