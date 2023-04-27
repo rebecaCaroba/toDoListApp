@@ -6,14 +6,12 @@ const btnActive = document.querySelector('#Active');
 const btnCompleted = document.querySelector('#Completed');
 const btnClear = document.querySelector('#Clear');
 const amout = document.querySelector('#amout');
-const arrTask = [];
 // ---------------------------------------------------------------------------------------------------
 
 const allDatas = JSON.parse(localStorage.getItem('datas'));
 let itens = localStorage.getItem('datas') !== null ? allDatas : [];
 
 function IdAleatorio() {
-
     const id = Date.now();
     return id;
 }
@@ -22,7 +20,7 @@ add.addEventListener("submit", (event) => {
     event.preventDefault();
     const inputValor = document.querySelector('#text');
     const valor = inputValor.value;
-    if (valor && !valor == ' ' && valor.length <= 60) {
+    if (valor !== ' ' || valor.length <= 60) {
 
         const data = {
             valor,
@@ -32,8 +30,8 @@ add.addEventListener("submit", (event) => {
         itens.push(data);
         contagemDeItens();
         renderizarListaVazia();
-        atualizarLocalStorage();
         Renderizar()
+        atualizarLocalStorage();
         inputValor.value = ' '
         inputValor.focus()
 
@@ -49,17 +47,19 @@ function atualizarLocalStorage() {
 
 function Renderizar() {
     itens.map(item => {
-        res.insertAdjacentHTML("afterbegin", `
-            <div class="tasks-res" id="${item.id}">
-                <div class="tasks">
-                    <input type="checkbox" class="checkbox-round">
-                    <span class="tasks-span">
-                        ${item.valor}
-                    </span>
-                </div>
-                <button class="button-cross" onClick='Delete(${item.id})' />
-            </div>`
-        )
+        if (!document.getElementById(`${item.id}`)) {     
+            res.insertAdjacentHTML("afterbegin", `
+                <div class="tasks-res" id="${item.id}">
+                    <div class="tasks">
+                        <input type="checkbox" class="checkbox-round">
+                        <span class="tasks-span">
+                            ${item.valor}
+                        </span>
+                    </div>
+                    <button class="button-cross" onClick='Delete(${item.id})' />
+                </div>`
+            )
+        }
     });
 }
 
