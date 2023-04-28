@@ -86,24 +86,16 @@ btnClear.addEventListener('click', () => {
     renderizarListaVazia();
 });
 
-document.addEventListener('click', (e) => {
+
+// Update
+document.querySelector('#res').addEventListener('input', (e) => {
     const targetEl = e.target;
-    if (targetEl.classList.contains('tasks-span')) {
-        const taskRes = targetEl.parentElement.parentElement;
-        const idEl = Number(taskRes.id);
-        const editEl = targetEl.innerText;
-        const objeto = itens.find(item => item.id === idEl);
-        objeto.valor = editEl;
-        console.log(itens);
-        atualizarLocalStorage();
-        // if (targetEl.classList.contains('tasks-span')) {
-        //     const taskRes = targetEl.parentElement.parentElement
-        //     const idEl = Number(taskRes.id)
-        //     const editEl = targetEl.innerText
-        //     const objeto = itens.find(item => item.id === idEl)
-        //     objeto.valor = editEl
-        // }
-    }
+    const idEl = Number(targetEl.parentElement.parentElement.id);
+    const editEl = targetEl.innerText;
+    const objeto = itens.find(item => item.id === idEl)
+    objeto.valor = editEl;
+    console.log(itens)
+    atualizarLocalStorage();
 });
 
 Renderizar();
