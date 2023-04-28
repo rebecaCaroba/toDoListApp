@@ -1,4 +1,5 @@
 const add = document.querySelector('.tasks-input');
+const spanTask = document.querySelector('.tasks-span');
 const res = document.querySelector('#res');
 const noTask = document.querySelector('.no-task');
 const btnAll = document.querySelector('#All');
@@ -8,6 +9,8 @@ const btnClear = document.querySelector('#Clear');
 const amout = document.querySelector('#amout');
 const allDatas = JSON.parse(localStorage.getItem('datas'));
 let itens = localStorage.getItem('datas') !== null ? allDatas : [];
+const charMax = 30;
+
 
 function IdAleatorio() {
     const id = Date.now();
@@ -18,7 +21,7 @@ add.addEventListener("submit", (event) => {
     event.preventDefault();
     const inputValor = document.querySelector('#text');
     const valor = inputValor.value;
-    if (valor && valor === ' ' && valor.length <= 60) {
+    if (valor.trim() === '' || valor.split(' ').join('').length > charMax) {
         alert('invalid Task');
     } else {
         const data = {
@@ -42,15 +45,15 @@ function atualizarLocalStorage() {
 
 function Renderizar() {
     res.innerHTML = ' '
-    itens.map(item => {
+    itens.forEach(item => {
         res.insertAdjacentHTML("afterbegin", `
                 <div class="tasks-res" id="${item.id}">
-                    <div class="tasks">
+                    <form class="tasks">
                         <input type="checkbox" class="checkbox-round">
-                        <span class="tasks-span" contenteditable>
+                        <span class="tasks-span" contenteditable="true">
                             ${item.valor}
                         </span>
-                    </div>
+                    </form>
                     <button class="button-cross" onClick='Delete(${item.id})' />
                 </div>`
         )
@@ -74,8 +77,6 @@ function Delete(id) {
 function renderizarListaVazia() {
     if (itens.length === 0) {
         res.innerHTML = '<div class="no-task"><span class="hidden-tasks"> No Exixting Records</span ></div >';
-    } else {
-        Renderizar();
     }
 }
 
@@ -90,12 +91,12 @@ btnClear.addEventListener('click', () => {
 // Update
 document.querySelector('#res').addEventListener('input', (e) => {
     const targetEl = e.target;
-    const idEl = Number(targetEl.parentElement.parentElement.id);
     const editEl = targetEl.innerText;
+    const idEl = Number(targetEl.parentElement.parentElement.id);
     const objeto = itens.find(item => item.id === idEl)
     objeto.valor = editEl;
-    console.log(itens)
     atualizarLocalStorage();
+
 });
 
 Renderizar();

@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;700&family=Overpass:ital,wght@0,200;0,700;1,300;1,400&display=swap');
+
 :root {
---VeryDarkBlue: hsl(235, 21%, 11%);
---VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
---LighzGrayishBlue: hsl(234, 39%, 85%);
---LightGrayishBlue: hsl(236, 33%, 92%);
---DarkGrayishBlue: hsl(234, 11%, 52%);
---VeryDarkGrayishBlue: hsl(233, 14%, 35%);
---VeryDarkGrayishBlue2: hsl(237, 14%, 26%);
---BrightBlue: hsl(220, 98%, 61%);
+    --VeryDarkBlue: hsl(235, 21%, 11%);
+    --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+    --LighzGrayishBlue: hsl(234, 39%, 85%);
+    --LightGrayishBlue: hsl(236, 33%, 92%);
+    --DarkGrayishBlue: hsl(234, 11%, 52%);
+    --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+    --VeryDarkGrayishBlue2: hsl(237, 14%, 26%);
+    --BrightBlue: hsl(220, 98%, 61%);
 }
 
 * {
@@ -30,29 +31,36 @@ body {
 }
 
 main {
-    max-width: 540px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 65vh;
+
 }
 
 .container {
-    position: relative;
-    margin: 6rem 20px 0px 20px;   
+    margin: 20px auto;
+    width: 600px;
+    max-width: 600px;
 }
 
-.title  {
+
+header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 20px 0px;
+    margin-bottom: 20px;
 }
 
-.title h1 {
-    font-size: 50px;
-    letter-spacing: 20px;
+header h1 {
+    font-size: 40px;
+    letter-spacing: 15px;
+    font-weight: 700;
 }
 
 .tasks-input {
     display: flex;
+    align-items: center;
     text-align: center;
     padding: 20px;
     background-color: var(--VeryDarkDesaturatedBlue);
@@ -61,21 +69,11 @@ main {
     width: 100%;
 }
 
-#add {
-    margin-right: 10px;
-    width: 1.4em;
-    height: 1.3em;
-    cursor: pointer;
-    background-color: transparent;
-    border: 1px solid hsl(236,9%,61%);
-    border-radius: 50%;
-}
-
 #text {
-    background-color: var(--VeryDarkDesaturatedBlue);
+    background-color: transparent;
     border: 0;
-    width: 100%;
     outline: none;
+    width: 100%;
     font-size: 1rem;
     color: var(--DarkGrayishBlue);
 }
@@ -84,11 +82,21 @@ main {
     color: var(--DarkGrayishBlue);
 }
 
+#add {
+    margin-right: 10px;
+    width: 1.4em;
+    height: 1.3em;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid hsl(236, 9%, 61%);
+    border-radius: 50%;
+}
+
 #res {
     border-radius: 5px;
     background-color: var(--VeryDarkDesaturatedBlue);
     color: var(--LighzGrayishBlue);
-    
+
 }
 
 .tasks-res {
@@ -97,19 +105,18 @@ main {
     justify-content: space-between;
     padding: 20px;
     border-bottom: 1px solid var(--VeryDarkGrayishBlue);
-}   
-
-.content {
-    max-width: 500px;
 }
+
+
 
 .checkbox-round {
     width: 1.3em;
     height: 1.3em;
+    line-height: 1.3em;
     background-color: transparent;
     border-radius: 50%;
     vertical-align: middle;
-    border: 1px solid hsl(236,9%,61%);
+    border: 1px solid hsl(236, 9%, 61%);
     appearance: none;
     -webkit-appearance: none;
     outline: none;
@@ -125,8 +132,7 @@ main {
     content: url('../images/icon-check.svg');
 }
 
-
-#theme  {
+#theme {
     background-image: url("../images/icon-moon.svg");
     width: 26px;
     height: 26px;
@@ -135,7 +141,7 @@ main {
     cursor: pointer;
 }
 
-.button-cross{
+.button-cross {
     background-image: url("../images/icon-cross.svg");
     background-color: var(--VeryDarkDesaturatedBlue);
     border: none;
@@ -151,7 +157,7 @@ main {
     padding: 20px;
     background-color: var(--VeryDarkDesaturatedBlue);
     color: var(--DarkGrayishBlue);
-    border-radius: 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .content-info button {
@@ -179,6 +185,6 @@ main {
     border-bottom: 1px solid var(--VeryDarkGrayishBlue);
 }
 
-input[type=checkbox]:checked ~ .tasks-span {
+input[type=checkbox]:checked~.tasks-span {
     text-decoration: line-through
-  }
+}
