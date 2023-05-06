@@ -25,6 +25,7 @@ body {
 
 i {
     color: #494c6b;
+
 }
 
 .banner img {
@@ -175,7 +176,6 @@ header h1 {
 .tasks-btn {
     background: transparent;
     display: flex;
-    /* align-items: center; */
 }
 
 .button-toggle {

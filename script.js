@@ -50,7 +50,7 @@ function Renderizar() {
                 <div class="tasks-res" id="${item.id}">
                     <form class="tasks">
                         <input type="checkbox" class="checkbox-round" id='exemplo'>
-                        <button type="submit" class="button-edit hidden" onClick="Update(${item.id})" ><i class="fa-solid fa-right-left"></i></button>
+                        <button type="submit" class="button-edit hidden" onClick="Update(${item.id})"><i class="fa-solid fa-right-left"></i></button>
                         <span class="tasks-span">
                             ${item.valor}
                         </span>
@@ -59,7 +59,7 @@ function Renderizar() {
                         </span>
                     </form>
                     <div class="tasks-btn">
-                    <button class="button-toggle" onClick='toggleForm(${item.id})'><i class="fa-solid fa-pen"></i></button>
+                    <button class="button-toggle" onClick='toggleForm(${item.id})' ><i class="fa-solid fa-pen"></i></button>
                     <button class="button-cross" onClick='Delete(${item.id})' />
                     <button class="cancel hidden" onClick=Cancelar(${item.id})><i class="fa-solid fa-circle-xmark"></i></button>
                     </div>
@@ -70,6 +70,7 @@ function Renderizar() {
 
 function contagemDeItens() {
     amout.innerText = `${itens.length}`;
+    
 }
 
 function Delete(id) {
