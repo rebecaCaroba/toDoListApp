@@ -35,12 +35,11 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    min-height: 65vh;
-
+    margin-top: 70px;
 }
 
 .container {
-    margin: 20px auto;
+    margin: 20px;
     width: 600px;
     max-width: 600px;
 }
@@ -87,10 +86,13 @@ header h1 {
     width: 1.4em;
     height: 1.3em;
     cursor: pointer;
+    font-weight: 500;
     background-color: transparent;
     border: 1px solid hsl(236, 9%, 61%);
+    color: hsl(236, 9%, 61%);
     border-radius: 50%;
 }
+
 
 #res {
     border-radius: 5px;
@@ -100,6 +102,14 @@ header h1 {
 }
 
 .tasks-res {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid var(--VeryDarkGrayishBlue);
+}
+
+.tasks-update {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,11 +139,27 @@ header h1 {
 }
 
 .checkbox-round:checked:before {
-    content: url('../images/icon-check.svg');
+    content: url('../assets/icon-check.svg');
+}
+
+.button-edit {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.editText {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    max-width: 250px;
+    font-size: 1rem;
+    color: var(--DarkGrayishBlue);
 }
 
 #theme {
-    background-image: url("../images/icon-moon.svg");
+    background-image: url("../assets/icon-moon.svg");
     width: 26px;
     height: 26px;
     background-color: transparent;
@@ -141,12 +167,33 @@ header h1 {
     cursor: pointer;
 }
 
+.tasks-btn {
+    background: transparent;
+    display: flex;
+    /* align-items: center; */
+}
+
+.button-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
 .button-cross {
-    background-image: url("../images/icon-cross.svg");
+    background-image: url("../assets/icon-cross.svg");
     background-color: var(--VeryDarkDesaturatedBlue);
     border: none;
     width: 18px;
     height: 18px;
+    cursor: pointer;
+}
+
+.cancel {
+    background: transparent;
+    font-size: 18px;
+    border: none;
     cursor: pointer;
 }
 
@@ -177,7 +224,9 @@ header h1 {
     color: var(--BrightBlue);
 }
 
-/*Class*/
+.hidden {
+    display: none;
+}
 
 .no-task {
     text-align: center;
