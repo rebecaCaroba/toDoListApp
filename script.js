@@ -136,6 +136,7 @@ function Update(id) {
       Renderizar();
     }
   }
+  
 
 function Cancelar(id) {
     toggleForm(id);
