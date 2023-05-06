@@ -176,6 +176,7 @@ header h1 {
 .tasks-btn {
     background: transparent;
     display: flex;
+    
 }
 
 .button-toggle {

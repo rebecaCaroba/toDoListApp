@@ -70,7 +70,7 @@ function Renderizar() {
 
 function contagemDeItens() {
     amout.innerText = `${itens.length}`;
-    
+
 }
 
 function Delete(id) {
@@ -136,7 +136,6 @@ function Update(id) {
       Renderizar();
     }
   }
-  
 
 function Cancelar(id) {
     toggleForm(id);
