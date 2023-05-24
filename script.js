@@ -49,7 +49,7 @@ function Renderizar() {
         res.insertAdjacentHTML("afterbegin", `
                 <div class="tasks-res" id="${item.id}">
                     <form class="tasks">
-                        <input type="checkbox" class="checkbox-round" id='exemplo'>
+                        <input type="checkbox" class="checkbox-round">
                         <button type="submit" class="button-edit hidden" onClick="Update(${item.id})"><i class="fa-solid fa-right-left"></i></button>
                         <span class="tasks-span">
                             ${item.valor}
