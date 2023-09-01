@@ -22,7 +22,7 @@
       <section class="content">
         <form class="tasks-input">
           <input type="submit" id="add" value="+"> 
-          <input type="text" id="text" autocomplete="off" placeholder="Create a new todo...">
+          <input type="text" id="text" autocomplete="off" maxlength="60" placeholder="Create a new todo...">
         </form>
         <!-- ------------------------------------------------------------- -->
         <div id="res">
@@ -30,11 +30,6 @@
         <footer class="content-info">
           <div>
             <span id="amout"></span> items left
-          </div>
-          <div id="button-info">
-            <button id="All">All</button>
-            <button id="Active">Active</button>
-            <button id="Completed">Completed</button>
           </div>
           <div id="btn-Clear">
             <button id="Clear">Clear Completed</button>

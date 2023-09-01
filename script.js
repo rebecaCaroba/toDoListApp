@@ -21,7 +21,7 @@ add.addEventListener("submit", (event) => {
     event.preventDefault();
     const inputValor = document.querySelector('#text');
     const valor = inputValor.value;
-    if (valor.trim() === '' || valor.split(' ').join('').length > charMax) {
+    if (valor.trim() === '') {
         alert('invalid Task');
     } else {
         const data = {
@@ -51,9 +51,11 @@ function Renderizar() {
                     <form class="tasks">
                         <input type="checkbox" class="checkbox-round">
                         <button type="submit" class="button-edit hidden" onClick="Update(${item.id})"><i class="fa-solid fa-right-left"></i></button>
-                        <span class="tasks-span">
-                            ${item.valor}
-                        </span>
+                        <div class="container-tasks-span">
+                            <span class="tasks-span">
+                                ${item.valor}
+                            </span>
+                        </div>
                         <span class="input-span">
                         <input type="text" id="editText-${item.id}" class="hidden editText">
                         </span>

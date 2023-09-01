@@ -161,6 +161,8 @@ header h1 {
     max-width: 250px;
     font-size: 1rem;
     color: var(--DarkGrayishBlue);
+    width: 100%;
+    height: 100%;
 }
 
 #theme {
@@ -241,6 +243,25 @@ header h1 {
     border-bottom: 1px solid var(--VeryDarkGrayishBlue);
 }
 
-input[type=checkbox]:checked~.tasks-span {
+input[type=checkbox]:checked~ .container-tasks-span span {
     text-decoration: line-through
+}
+
+.tasks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-tasks-span {
+    max-width: 450px;
+    overflow-x: auto;
+
+}
+
+@media (max-width: 600px){
+    .container-tasks-span {
+        max-width: 300px;
+        overflow-x: auto;
+    }
 }
