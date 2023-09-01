@@ -45,7 +45,6 @@ main {
 .container {
     margin: 20px;
     width: 600px;
-    max-width: 600px;
 }
 
 
@@ -261,7 +260,7 @@ input[type=checkbox]:checked~ .container-tasks-span span {
 
 @media (max-width: 600px){
     .container-tasks-span {
-        max-width: 300px;
+        max-width: 230px;
         overflow-x: auto;
     }
 }

@@ -9,7 +9,7 @@ const btnClear = document.querySelector('#Clear');
 const amout = document.querySelector('#amout');
 const allDatas = JSON.parse(localStorage.getItem('datas'));
 let itens = localStorage.getItem('datas') !== null ? allDatas : [];
-const charMax = 60;
+const charMax = 55;
 
 
 function IdAleatorio() {
@@ -57,7 +57,7 @@ function Renderizar() {
                             </span>
                         </div>
                         <span class="input-span">
-                        <input type="text" id="editText-${item.id}" class="hidden editText">
+                        <input type="text" id="editText-${item.id}" maxlength="55" class="hidden editText">
                         </span>
                     </form>
                     <div class="tasks-btn">
