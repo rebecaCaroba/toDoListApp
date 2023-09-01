@@ -255,12 +255,10 @@ input[type=checkbox]:checked~ .container-tasks-span span {
 .container-tasks-span {
     max-width: 450px;
     overflow-x: auto;
-
 }
 
 @media (max-width: 600px){
     .container-tasks-span {
-        max-width: 230px;
-        overflow-x: auto;
+        max-width: 220px;
     }
 }

@@ -21,7 +21,7 @@ add.addEventListener("submit", (event) => {
     event.preventDefault();
     const inputValor = document.querySelector('#text');
     const valor = inputValor.value;
-    if (valor.trim() === '') {
+    if (valor.trim() === ''  || valor.split(" ").join("").length > charMax) {
         alert('invalid Task');
     } else {
         const data = {
@@ -57,7 +57,7 @@ function Renderizar() {
                             </span>
                         </div>
                         <span class="input-span">
-                        <input type="text" id="editText-${item.id}" maxlength="55" class="hidden editText">
+                        <input type="text" id="editText-${item.id}" class="hidden editText">
                         </span>
                     </form>
                     <div class="tasks-btn">
