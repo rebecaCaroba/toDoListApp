@@ -1,45 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Frontend Mentor | Todo app</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>ToDo | Lista de tarefas</title>
 </head>
-
 <body>
-  <section class="banner">
-    <img src="../assets/bg-desktop-dark.jpg" alt="banner">
-  </section>
-  <main>
-    <section class="container">
-      <header class="title">
-        <h1>TODO</h1>
-        <button id="theme"></button>
-      </header>
-      <section class="content">
-        <form class="tasks-input">
-          <input type="submit" id="add" value="+"> 
-          <input type="text" id="text" autocomplete="off" placeholder="Create a new todo...">
-        </form>
-        <!-- ------------------------------------------------------------- -->
-        <div id="res">
+    <header>
+        <h1 class="logo">TODO</h1>
+        <nav>
+            <a href="/index.html">Introdução</a>
+            <a href="/sobrenos.html">Sobre nós</a>
+            <a href="/tutorial.html">Tutorial</a>
+            <a href="/contato.html">Contato</a>
+        </nav>
+    </header>
+    <section>
+        <div class="banner-container">
+            <div class="banner-texto">
+                <h1>Apresentamos o Todo</h1>
+                <p>
+                    O ToDo é mais do que uma simples lista de tarefas. É a ferramenta perfeita para organizar sua vida, seja no trabalho, nos estudos ou em projetos pessoais. Simplificamos o processo para que você possa focar no que realmente importa.
+                </p>
+                <div class="banner-button">
+                    <a href="./app.html" target="_blank">Experimentar ToDo -></a>
+                </div>
+            </div>
+            
+            <div class="banner-img">
+                <img src="./assets/bannerhome.jpg" alt="Imagem do App ToDo">
+            </div>
         </div>
-        <footer class="content-info">
-          <div>
-            <span id="amout"></span> items left
-          </div>
-          <div id="btn-Clear">
-            <button id="Clear">Clear Completed</button>
-          </div>
-        </footer>
-      </section>
     </section>
-  </main>
-  <script src="script.js"></script>
-  <script src="https://kit.fontawesome.com/1a11039d45.js" crossorigin="anonymous"></script>
+    <main>
+        <div class="main-text">
+            <h1>Organize-se de Maneira Simples e Eficiente</h1>
+            <p>
+                O ToDo oferece uma abordagem simples e eficiente para gerenciar suas tarefas diárias. Com uma interface intuitiva, você pode adicionar, editar e excluir tarefas com facilidade. Nunca foi tão fácil manter-se organizado.
+            </p>
+            <p>
+                Utilizamos a tecnologia mais recente para garantir que suas tarefas sejam salvas com segurança. O armazenamento local permite que você acesse suas listas de tarefas de qualquer lugar, a qualquer momento, sem perder seus dados.
+            </p>
+        </div>
+        <div class="main-text">
+            <h1>Funcionalidades Principais</h1>
+            <br><br>
+            <div class="main-container-card">
+                <div class="main-content-card">
+                    <div class="card">
+                        <img src="./assets/botao-adicionar.png" alt="">
+                    </div>
+                    <br><br>
+                    <h3>Adicionar Tarefas</h3>
+                    <p>Adicione facilmente novas tarefas à sua lista com apenas alguns cliques. Mantenha-se no controle de suas responsabilidades diárias.</p>
+                </div>
+                <div class="main-content-card">
+                    <div class="card">
+                        <img src="./assets/editar.png" alt="">
+                    </div>
+                    <br><br>
+                    <h3>Editar Tarefas</h3>
+                    <p>Personalize suas tarefas conforme necessário. O ToDo permite que você faça alterações rápidas e mantenha suas informações sempre atualizadas.</p>
+                </div>
+                <div class="main-content-card">
+                    <div class="card">
+                        <img src="./assets/excluir.png" alt="">
+                    </div>
+                    <br><br>
+                    <h3>Excluir Tarefas</h3>
+                    <p>Remova tarefas concluídas ou irrelevantes para manter sua lista organizada e focada no que realmente importa.</p>
+                </div>
+                <div class="main-content-card">
+                    <div class="card">
+                        <img src="./assets/armazenamento-do-servidor.png" alt="">
+                    </div>
+                    <br><br>
+                    <h3>Armazenamento Local</h3>
+                    <p>Utilizamos o armazenamento local para garantir a segurança e acessibilidade dos seus dados. Nunca perca suas listas, mesmo em dispositivos diferentes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-text">
+            <h1>LocalStorage</h1>
+            <p>
+                &nbsp;&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit, odit distinctio hic in accusantium corrupti repudiandae aut tenetur maiores sint ipsam sequi quo, exercitationem reprehenderit beatae qui iusto fuga.
+            </p>
+            <p>
+                &nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur ipsum quis, ad laudantium ex dolor cumque suscipit modi esse animi numquam. Perferendis hic voluptate nesciunt sed, ducimus quidem porro consectetur!
+            </p>
+        </div>
+    </main>
+    <footer>
+        <h1 class="logo">TODO</h1>
+    </footer>
 </body>
-
 </html>

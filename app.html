@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/app.css">
+  <title>ToDo | Lista de tarefas</title>
+</head>
+
+<body>
+  <section class="banner">
+    <img src="./assets/banner.jpg" alt="banner">
+
+  </section>
+  <main>
+    <section class="container">
+      <header class="title">
+        <h1>LISTA</h1>
+      </header>
+      <section class="content">
+        <form class="tasks-input">
+          <input type="submit" id="addInput" value="+"> 
+          <input type="text" id="text" autocomplete="off" placeholder="Crie uma nova tarefa...">
+        </form>
+        <div id="res">
+        </div>
+        <footer class="content-info">
+          <div>
+            <span id="amout"></span> itens restantes
+          </div>
+          <div id="btn-Clear">
+            <button id="Clear">Limpeza completa</button>
+          </div>
+        </footer>
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/1a11039d45.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

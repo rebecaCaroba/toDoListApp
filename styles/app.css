@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;700&family=Overpass:ital,wght@0,200;0,700;1,300;1,400&display=swap');
 :root {
-    --VeryDarkBlue: hsl(235, 21%, 11%);
-    --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
-    --LighzGrayishBlue: hsl(234, 39%, 85%);
-    --LightGrayishBlue: hsl(236, 33%, 92%);
-    --DarkGrayishBlue: hsl(234, 11%, 52%);
-    --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
-    --VeryDarkGrayishBlue2: hsl(237, 14%, 26%);
-    --BrightBlue: hsl(220, 98%, 61%);
+    --VeryDarkBlue: #161722;
+    --VeryDarkDesaturatedBlue: #25273c;
+    --LighzGrayishBlue: #cacde8;
+    --LightGrayishBlue: #e4e5f1;
+    --DarkGrayishBlue: #777a92;
+    --VeryDarkGrayishBlue: #4d5066;
+    --VeryDarkGrayishBlue2: #393a4c;
+    --BrightBlue: #3a7bfd;
 }
 
 * {
@@ -71,6 +71,12 @@ header h1 {
     width: 100%;
 }
 
+    .tasks-input input:disabled {
+        cursor: not-allowed;
+    }
+
+
+
 #text {
     background-color: transparent;
     border: 0;
@@ -85,7 +91,7 @@ header h1 {
     color: var(--DarkGrayishBlue);
 }
 
-#add {
+#addInput {
     margin-right: 10px;
     width: 1.4em;
     height: 1.3em;
@@ -121,9 +127,11 @@ header h1 {
     border-bottom: 1px solid var(--VeryDarkGrayishBlue);
 }
 
-
-
 .checkbox-round {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: transparent;
+    border-radius: 50%;
     width: 1.3em;
     height: 1.3em;
     line-height: 1.3em;
@@ -144,6 +152,10 @@ header h1 {
 
 .checkbox-round:checked:before {
     content: url('../assets/icon-check.svg');
+} 
+
+.checkbox-round:disabled {
+    cursor: not-allowed;
 }
 
 .button-edit {
@@ -164,21 +176,15 @@ header h1 {
     height: 100%;
 }
 
-#theme {
-    background-image: url("../assets/icon-moon.svg");
-    width: 26px;
-    height: 26px;
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-
-}
-
-
 .tasks-btn {
     background: transparent;
     display: flex;
 
+}
+
+.tasks-btn img {
+    width: 18px;
+    height: 18px;
 }
 
 .button-toggle {
@@ -189,8 +195,11 @@ header h1 {
     margin-right: 10px;
 }
 
+.button-toggle:disabled {
+    cursor: not-allowed;
+}
+
 .button-cross {
-    background-image: url("../assets/icon-cross.svg");
     background-color: var(--VeryDarkDesaturatedBlue);
     border: none;
     width: 18px;
@@ -242,9 +251,16 @@ header h1 {
     border-bottom: 1px solid var(--VeryDarkGrayishBlue);
 }
 
-input[type=checkbox]:checked~ .container-tasks-span span {
-    text-decoration: line-through
+.finalizada {
+    text-decoration: line-through;
+    opacity: 0.5;
+    
 }
+
+.finalizada:disabled {
+    opacity: 1;
+}
+
 
 .tasks {
     display: flex;

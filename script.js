@@ -2,31 +2,39 @@ const add = document.querySelector('.tasks-input');
 const res = document.querySelector('#res');
 const noTask = document.querySelector('.no-task');
 const cancel = document.querySelector('#cancel');
-const btnAll = document.querySelector('#All');
-const btnActive = document.querySelector('#Active');
-const btnCompleted = document.querySelector('#Completed');
 const btnClear = document.querySelector('#Clear');
 const amout = document.querySelector('#amout');
+const inputAdd = document.querySelector('#addInput')
+const inputValor = document.querySelector('#text');
 const allDatas = JSON.parse(localStorage.getItem('datas'));
 let itens = localStorage.getItem('datas') !== null ? allDatas : [];
 const charMax = 55;
-
 
 function IdAleatorio() {
     const id = Date.now();
     return id;
 }
 
+function tarefaFeita(id){
+    const dados = JSON.parse(localStorage.getItem('datas'));
+    const tarefa = dados.find(item => item.id === id);
+    tarefa.finalizado = !tarefa.finalizado;
+    localStorage.setItem('datas', JSON.stringify(dados));
+    itens = dados;
+
+    Renderizar();
+}
+
 add.addEventListener("submit", (event) => {
     event.preventDefault();
-    const inputValor = document.querySelector('#text');
     const valor = inputValor.value;
     if (valor.trim() === ''  || valor.split(" ").join("").length > charMax) {
         alert('invalid Task');
     } else {
         const data = {
             valor,
-            id: IdAleatorio()
+            id: IdAleatorio(),
+            finalizado: false
         }
 
         itens.push(data);
@@ -47,9 +55,9 @@ function Renderizar() {
     res.innerHTML = ' ';
     itens.map(item => {
         res.insertAdjacentHTML("afterbegin", `
-                <div class="tasks-res" id="${item.id}">
+                <div class="tasks-res ${item.finalizado ? 'finalizada' : ''}" id="${item.id}">
                     <form class="tasks">
-                        <input type="checkbox" class="checkbox-round">
+                        <input type="checkbox" class="checkbox-round" onClick='tarefaFeita(${item.id})' ${item.finalizado ? 'checked' : ''}>
                         <button type="submit" class="button-edit hidden" onClick="Update(${item.id})"><i class="fa-solid fa-right-left"></i></button>
                         <div class="container-tasks-span">
                             <span class="tasks-span">
@@ -61,8 +69,8 @@ function Renderizar() {
                         </span>
                     </form>
                     <div class="tasks-btn">
-                    <button class="button-toggle" onClick='toggleForm(${item.id})' ><i class="fa-solid fa-pen"></i></button>
-                    <button class="button-cross" onClick='Delete(${item.id})' />
+                    <button class="button-toggle" onClick='toggleForm(${item.id})'${item.finalizado ? 'disabled' : ''} ><img src='./assets/editar.png' alt="excluir"></button>
+                    <button class="button-cross" onClick='Delete(${item.id})'><img src='./assets/excluir.png' alt="excluir"></button>
                     <button class="cancel hidden" onClick=Cancelar(${item.id})><i class="fa-solid fa-circle-xmark"></i></button>
                     </div>
                 </div>`
@@ -72,7 +80,6 @@ function Renderizar() {
 
 function contagemDeItens() {
     amout.innerText = `${itens.length}`;
-
 }
 
 function Delete(id) {
@@ -82,12 +89,11 @@ function Delete(id) {
     itemremove.remove();
     contagemDeItens();
     renderizarListaVazia();
-
 }
 
 function renderizarListaVazia() {
     if (itens.length === 0) {
-        res.innerHTML = '<div class="no-task"><span class="hidden-tasks"> No Exixting Records</span ></div >';
+        res.innerHTML = '<div class="no-task"><span class="hidden-tasks">Nenhum registro existente</span ></div >';
     }
 }
 
@@ -95,12 +101,12 @@ btnClear.addEventListener('click', () => {
     localStorage.clear();
     itens = [];
     res.innerHTML = ' ';
+    contagemDeItens()
     renderizarListaVazia();
 });
 
 function toggleForm(id) {
     const taskRes = document.querySelector(`.tasks-res[id="${id}"]`);
-    const tasks = document.querySelector('.tasks');
     const btnEdit = taskRes.querySelector('.button-edit');
     const checkbox = taskRes.querySelector('.checkbox-round');
     const spanTask = taskRes.querySelector('.tasks-span');
