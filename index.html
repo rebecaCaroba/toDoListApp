@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>ToDo | Lista de tarefas</title>
 </head>
+
 <body>
     <header>
         <h1 class="logo">TODO</h1>
@@ -22,13 +24,15 @@
             <div class="banner-texto">
                 <h1>Apresentamos o Todo</h1>
                 <p>
-                    O ToDo é mais do que uma simples lista de tarefas. É a ferramenta perfeita para organizar sua vida, seja no trabalho, nos estudos ou em projetos pessoais. Simplificamos o processo para que você possa focar no que realmente importa.
+                    O ToDo é mais do que uma simples lista de tarefas. É a ferramenta perfeita para organizar sua vida,
+                    seja no trabalho, nos estudos ou em projetos pessoais. Simplificamos o processo para que você possa
+                    focar no que realmente importa.
                 </p>
                 <div class="banner-button">
                     <a href="./app.html" target="_blank">Experimentar ToDo -></a>
                 </div>
             </div>
-            
+
             <div class="banner-img">
                 <img src="./assets/bannerhome.jpg" alt="Imagem do App ToDo">
             </div>
@@ -38,10 +42,14 @@
         <div class="main-text">
             <h1>Organize-se de Maneira Simples e Eficiente</h1>
             <p>
-                O ToDo oferece uma abordagem simples e eficiente para gerenciar suas tarefas diárias. Com uma interface intuitiva, você pode adicionar, editar e excluir tarefas com facilidade. Nunca foi tão fácil manter-se organizado.
+                O ToDo oferece uma abordagem simples e eficiente para gerenciar suas tarefas diárias. Com uma interface
+                intuitiva, você pode adicionar, editar e excluir tarefas com facilidade. Nunca foi tão fácil manter-se
+                organizado.
             </p>
             <p>
-                Utilizamos a tecnologia mais recente para garantir que suas tarefas sejam salvas com segurança. O armazenamento local permite que você acesse suas listas de tarefas de qualquer lugar, a qualquer momento, sem perder seus dados.
+                Utilizamos a tecnologia mais recente para garantir que suas tarefas sejam salvas com segurança. O
+                armazenamento local permite que você acesse suas listas de tarefas de qualquer lugar, a qualquer
+                momento, sem perder seus dados.
             </p>
         </div>
         <div class="main-text">
@@ -54,7 +62,8 @@
                     </div>
                     <br><br>
                     <h3>Adicionar Tarefas</h3>
-                    <p>Adicione facilmente novas tarefas à sua lista com apenas alguns cliques. Mantenha-se no controle de suas responsabilidades diárias.</p>
+                    <p>Adicione facilmente novas tarefas à sua lista com apenas alguns cliques. Mantenha-se no controle
+                        de suas responsabilidades diárias.</p>
                 </div>
                 <div class="main-content-card">
                     <div class="card">
@@ -62,7 +71,8 @@
                     </div>
                     <br><br>
                     <h3>Editar Tarefas</h3>
-                    <p>Personalize suas tarefas conforme necessário. O ToDo permite que você faça alterações rápidas e mantenha suas informações sempre atualizadas.</p>
+                    <p>Personalize suas tarefas conforme necessário. O ToDo permite que você faça alterações rápidas e
+                        mantenha suas informações sempre atualizadas.</p>
                 </div>
                 <div class="main-content-card">
                     <div class="card">
@@ -70,7 +80,8 @@
                     </div>
                     <br><br>
                     <h3>Excluir Tarefas</h3>
-                    <p>Remova tarefas concluídas ou irrelevantes para manter sua lista organizada e focada no que realmente importa.</p>
+                    <p>Remova tarefas concluídas ou irrelevantes para manter sua lista organizada e focada no que
+                        realmente importa.</p>
                 </div>
                 <div class="main-content-card">
                     <div class="card">
@@ -82,9 +93,72 @@
                 </div>
             </div>
         </div>
+        <div class="main-text">
+            <h1>Local Storage</h1>
+            <h2>1. Verificando o Suporte:</h2>
+            <pre>
+                <code>
+                    if (typeof(Storage) !== "undefined") {
+                        // Suporte ao LocalStorage
+                        // Seu código aqui
+                    } else {
+                        // LocalStorage não suportado
+                        console.log("Desculpe, seu navegador não suporta LocalStorage.");
+                    }
+                </code>
+            </pre>
+
+            <h2>2. Armazenando Dados:</h2>
+            <pre>
+                <code>
+                    localStorage.setItem("nome", "John");
+                </code>
+            </pre>
+            <h2>3. Recuperando Dados:</h2>
+            <pre>
+                <code>
+                    var nomeArmazenado = localStorage.getItem("nome");
+                    console.log("Nome armazenado:", nomeArmazenado);
+                </code>
+            </pre>
+
+            <h2>4. Removendo Dados:</h2>
+            <pre>
+                <code>
+                    localStorage.removeItem("nome");
+                </code>
+            </pre>
+
+            <h2>5. Limpando Todos os Dados:</h2>
+            <pre>
+                <code>
+                    localStorage.clear();
+                </code>
+            </pre>
+
+            <h2>Explicação Passo a Passo:</h2>
+            <br>
+            <ul>
+                <li><strong>Verificar Suporte ao LocalStorage:</strong> Garante que o navegador suporta o LocalStorage
+                    antes de utilizá-lo.</li>
+                <li><strong>Armazenar Dados:</strong> Utiliza <code>setItem()</code> para associar a chave "nome" ao
+                    valor "John".</li>
+                <li><strong>Recuperar Dados:</strong> Usa <code>getItem()</code> para obter e exibir o valor associado à
+                    chave "nome".</li>
+                <li><strong>Remover Dados:</strong> Utiliza <code>removeItem()</code> para excluir o item associado à
+                    chave "nome".</li>
+                <li><strong>Limpar Todos os Dados:</strong> Utiliza <code>clear()</code> para remover todos os itens
+                    armazenados no LocalStorage.</li>
+            </ul>
+
+            <p>Este guia prático proporciona uma visão rápida e eficiente de como integrar o LocalStorage em suas
+                aplicações web, oferecendo uma solução simples para armazenar dados no navegador do usuário. Adapte
+                conforme necessário para atender às especificidades de sua aplicação.</p>
+        </div>
     </main>
     <footer>
         <h1 class="logo">TODO</h1>
     </footer>
 </body>
+
 </html>
