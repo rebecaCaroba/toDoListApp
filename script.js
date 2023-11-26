@@ -29,7 +29,7 @@ add.addEventListener("submit", (event) => {
     event.preventDefault();
     const valor = inputValor.value;
     if (valor.trim() === ''  || valor.split(" ").join("").length > charMax) {
-        alert('invalid Task');
+        alert('Número de caracteres inválido');
     } else {
         const data = {
             valor,

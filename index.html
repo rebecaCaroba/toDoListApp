@@ -95,26 +95,13 @@
         </div>
         <div class="main-text">
             <h1>Local Storage</h1>
-            <h2>1. Verificando o Suporte:</h2>
-            <pre>
-                <code>
-                    if (typeof(Storage) !== "undefined") {
-                        // Suporte ao LocalStorage
-                        // Seu código aqui
-                    } else {
-                        // LocalStorage não suportado
-                        console.log("Desculpe, seu navegador não suporta LocalStorage.");
-                    }
-                </code>
-            </pre>
-
-            <h2>2. Armazenando Dados:</h2>
+            <h2>1. Armazenando Dados:</h2>
             <pre>
                 <code>
                     localStorage.setItem("nome", "John");
                 </code>
             </pre>
-            <h2>3. Recuperando Dados:</h2>
+            <h2>2. Recuperando Dados:</h2>
             <pre>
                 <code>
                     var nomeArmazenado = localStorage.getItem("nome");
@@ -122,14 +109,14 @@
                 </code>
             </pre>
 
-            <h2>4. Removendo Dados:</h2>
+            <h2>3. Removendo Dados:</h2>
             <pre>
                 <code>
                     localStorage.removeItem("nome");
                 </code>
             </pre>
 
-            <h2>5. Limpando Todos os Dados:</h2>
+            <h2>4. Limpando Todos os Dados:</h2>
             <pre>
                 <code>
                     localStorage.clear();
@@ -139,8 +126,6 @@
             <h2>Explicação Passo a Passo:</h2>
             <br>
             <ul>
-                <li><strong>Verificar Suporte ao LocalStorage:</strong> Garante que o navegador suporta o LocalStorage
-                    antes de utilizá-lo.</li>
                 <li><strong>Armazenar Dados:</strong> Utiliza <code>setItem()</code> para associar a chave "nome" ao
                     valor "John".</li>
                 <li><strong>Recuperar Dados:</strong> Usa <code>getItem()</code> para obter e exibir o valor associado à
